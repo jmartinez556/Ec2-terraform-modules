@@ -1,7 +1,7 @@
 resource "aws_security_group" "load_balancer_security_group" {
   description = "Allow internet traffic"
   vpc_id      = var.vpc_id
-  name        = "justins_newest_security_group"
+  name        = "${var.app_name}-${var.region}-${var.environment}-lb_security_group"
 
   ingress {
     description = "allow traffic from public instances sg"
@@ -30,7 +30,7 @@ resource "aws_security_group" "load_balancer_security_group" {
 resource "aws_security_group" "instances_private_security_group" {
   description = "Allow internet traffic"
   vpc_id      = var.vpc_id
-  name        = "justins_newer_private_security_group"
+  name        = "${var.app_name}-${var.region}-${var.environment}-private_security_group"
 
   ingress {
     description     = "allow traffic from load balancer"

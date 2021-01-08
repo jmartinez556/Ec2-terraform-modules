@@ -3,7 +3,7 @@ resource "aws_vpc" "main" {
   instance_tenancy = "default"
 
   tags = {
-    Name = "Justins-vpc"
+    Name = "${var.app_name}-${var.region}-${var.environment}-vpc"
   }
 }
 resource "aws_internet_gateway" "ig" {
@@ -19,7 +19,7 @@ resource "aws_subnet" "public-1" {
   cidr_block        = var.public_subnet1_cidr_block
 
   tags = {
-    Name = "check your constitution"
+    Name = "${var.app_name}-${var.region}-${var.environment}-public_subbnet_1"
   }
 }
 resource "aws_subnet" "public-2" {
@@ -28,7 +28,7 @@ resource "aws_subnet" "public-2" {
   cidr_block        = var.public_subnet2_cidr_block
 
   tags = {
-    Name = "Justins-public_subnet-2"
+    Name = "${var.app_name}-${var.region}-${var.environment}-public_subbnet_2"
   }
 }
 resource "aws_subnet" "public-3" {
@@ -37,7 +37,7 @@ resource "aws_subnet" "public-3" {
   cidr_block        = var.public_subnet3_cidr_block
 
   tags = {
-    Name = "Justins-public_subnet-3"
+    Name = "${var.app_name}-${var.region}-${var.environment}-public_subbnet_3"
   }
 }
 resource "aws_route_table" "public-rt" {
@@ -49,7 +49,7 @@ resource "aws_route_table" "public-rt" {
   }
 
   tags = {
-    Name = "Justins-public-rt"
+    Name = "${var.app_name}-${var.region}-${var.environment}-public_route_table_1"
   }
 }
 resource "aws_route_table_association" "rta-public-1" {
@@ -70,7 +70,7 @@ resource "aws_subnet" "private-1" {
   cidr_block        = var.private_subnet1_cidr_block
 
   tags = {
-    Name = "Justins-private_subnet-1"
+    Name = "${var.app_name}-${var.region}-${var.environment}-private_subnet_1"
   }
 }
 resource "aws_subnet" "private-2" {
@@ -79,7 +79,7 @@ resource "aws_subnet" "private-2" {
   cidr_block        = var.private_subnet2_cidr_block
 
   tags = {
-    Name = "Justins-private_subnet-2"
+    Name = "${var.app_name}-${var.region}-${var.environment}-private_subnet_2"
   }
 }
 resource "aws_subnet" "private-3" {
@@ -88,7 +88,7 @@ resource "aws_subnet" "private-3" {
   cidr_block        = var.private_subnet3_cidr_block
 
   tags = {
-    Name = "Justins-private_subnet-3"
+    Name = "${var.app_name}-${var.region}-${var.environment}-private_subnet_3"
   }
 }
 resource "aws_route_table_association" "rta-private-1" {
@@ -112,7 +112,7 @@ resource "aws_route_table" "private-rt" {
   }
 
   tags = {
-    Name = "Justins-private-rt"
+    Name = "${var.app_name}-${var.region}-${var.environment}-private_route_table_1"
   }
 }
 resource "aws_eip" "nat" {
@@ -123,7 +123,7 @@ resource "aws_nat_gateway" "nat-gw" {
   allocation_id = aws_eip.nat.id
   subnet_id     = aws_subnet.public-1.id
   tags = {
-    Name = "Justins-nat-gateway"
+    Name = "${var.app_name}-${var.region}-${var.environment}-nat_gateway"
   }
 }
 

@@ -30,6 +30,12 @@ variable "private_subnet3_cidr_block" {
   type    = string
   default = "10.200.6.0/24"
 }
+variable "app_name" {
+  type = string
+}
+variable "environment" {
+  type = string
+}
 
 
 

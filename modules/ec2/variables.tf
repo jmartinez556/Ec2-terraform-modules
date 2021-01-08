@@ -56,8 +56,15 @@ variable "subnet_name_version10" {
   type    = string
   default = true
 }
-
-
+variable "app_name" {
+  type = string
+}
+variable "region" {
+  type = string
+}
+variable "environment" {
+  type = string
+}
 
 
 

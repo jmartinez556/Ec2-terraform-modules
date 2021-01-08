@@ -7,6 +7,6 @@ resource "aws_instance" "ec2-instance" {
   associate_public_ip_address = true
   tags = {
     subnetthisec2livesin = var.subnet_name_version10
-    Name                 = "Justins-ec2-instance"
+    Name                 = "${var.app_name}-${var.region}-${var.environment}-ec2_instance"
   }
 }

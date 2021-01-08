@@ -4,3 +4,4 @@ terraform.tfstate.backup
 .idea
 crash.log
 .idea/*
+.idea/
